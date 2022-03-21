@@ -1,33 +1,45 @@
-# HOMEWORK # 2
+# Data Skills 2: Homework 4 (ML)
+## Voting classification
 
-**Objective:** This homework exercise is intended to give you first-hand experience in building a repo for a DS project aligned with current best practices and to help you understand the logic behind best practices. If you need a refresher, check the slides for [week 3](https://github.com/marco-morales/QMSS-GR5069_Spring2022/tree/main/week_03) and [week 4](https://github.com/marco-morales/QMSS-GR5069_Spring2022/tree/main/week_04).
+__Due date: Sunday November 29th before midnight__
 
-### Instructions:
+In homework 1 we used state-level data on employment in several
+ [NAICS](https://www.naics.com/search/) code sectors from 
+the [Bureau of Economic Analysis]
+(https://apps.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1).  
+We have also explored the Pandas DataReader library in order to 
+access the FRED database, among others.  
+Your goal in this assignment is to use annual state-level data 
+and supervised machine learning to classify 
+states as voting for a Republican or Democrat for president.
 
-#### (a) select a project and push it to this repo
+1. Use *any* annual state-level data from any two presidential 
+election years (1976 and later) that you like, 
+e.g. 2008 and 2012, 2016 and 2020, etc.  Your data may be retrieved 
+by the program, or downloaded by hand and 
+synched with your repo, or a combination of both.
+2. If you have already written functions to use that data, 
+you may reuse those functions here.
+3. Merge all data together with the included csv on 
+US presidential election results that I downloaded 
+from 
+[here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX).
+4. Your training data will be the first presidential election year, 
+and your testing data will be the second.
+5. Use a test harness to assess which model 
+to use (more discussion of this to follow on Wednesday).
+6. Fit a supervised ML model (classification) to the data 
+in that way that lets you make predictions, 
+then compare the predictions to the actual outcome.
 
-* choose a project of your own that you have produced in the past: *e.g*  a homework or a final project for another class
-* `push` all files from that project to this repo without changing it. (Note that GitHub is not designed to store data and thus cannot store large files.)
+End your code with a few lines discussing what you found.  
+Did your model do a good job of predicting the winner?  
+What accuracy measure did you use to evaluate the model results, and why?  
+Were you able to reuse any code that you 
+wrote previously, and if so, what worked well or didn't work well?
 
-#### (b) add a collaborator
+Do not get too bogged down on actually predicting the winner perfectly.  
+It's fine to get a mixed result and then 
+discuss how different data or a different model may have improved the results.
 
-* check the list [**here**](img/homework-2-assignments.png) to find your randomly assigned partners for this homework. You will appear as the owner of this repo with an associated collaborator. You will also appear as a collaborator for someone else's repo
-* ask to be added as a collaborator to your designated owner's repo
-* add your collaborator to this repo
-
-#### (c) create pull requests for the repo you are a collaborator for
-
-* create **one `pull` request per issue** you identify as subject to improvement. Note that the pull request should include the substantive change you are proposing for the repo. Note that you will not receive full marks is you do not add the change itself.
-* in your pull requests explain **why you are recommending specific changes** and **how do you perceive it might help** the you of the future. Note that you will not receive full marks if you do not add these explanations.
-* create at least five (5) pull requests to **improve the structure of the project** [`20 pts`]
-    * these could include - but are not limited to -  enhancements to the folder structure, adding an informative `README` file, adding items to the `.gitignore` file, dropping data folders, etc
-* create at least seven (7) pull requests to **improve coding etiquette** [`40 pts`]
-    * these could include - but are not limited to - reorganizing script structure, improving comments, using relative paths, improving readability, creating (and calling) additional scripts, etc
-
-
-
-#### (d) act on all pull requests from your collaborator [`40 pts`]
-
-* you will receive multiple `pull` requests from your collaborator with suggestions on how to adopt best practices in your repo
-* use the pull request functionality in GitHub to **accept**, **comment** or **reject** each one of these pull requests.
-* note that you will not receive full marks if you leave pull requests unattended.
+As always, don't forget your functions and other good coding practices!
