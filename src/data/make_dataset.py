@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 
+# this is a helper function to pull in csvs from my working directory as df
 def get_csv_data(filename, x = 4):
 
     folderpath = r'' #file path deleted
@@ -10,8 +11,13 @@ def get_csv_data(filename, x = 4):
     df = pd.read_csv(path, skiprows = x)
     return df
 
+# farm data contains the per-person farm income amount
 farm = get_csv_data('farm.csv')
+
+#gdp.csv contains per capita data
 gdp  = get_csv_data('gdp.csv')
+
+# 1976-2016-president.csv contains the election winner data by state and election cycle
 ele  = get_csv_data('1976-2016-president.csv', x = 0)
 
 
@@ -19,13 +25,17 @@ ele  = get_csv_data('1976-2016-president.csv', x = 0)
 def clean_election(ele):
 
     #clean election data to choose winners
+    #I'm choosing to use 2008 and 2012 election years data
     ele = ele[(ele['year'] == 2008) | (ele['year'] == 2012)]
     ele = ele[['year', 'state', 'party', 'candidatevotes']]
 
+    # winner picking
     winners = ele.sort_values('candidatevotes', ascending = False).groupby(['year', 'state']).first()
     #citation: https://stackoverflow.com/questions/30486417/pandas-how-do-i-select-first-row-in-each-group-by-group#:~:text=The%20pandas%20groupby%20function%20could%20be%20used%20for,key%2C%20you%20should%20pass%20as%20the%20subset%3D%20variable
     winners = winners.iloc[:,0]
     winners = winners.reset_index()
+
+    # democratic-farmer-labor is a specific party to Minnesota that needs to be recoded to 'democrat'
     winners['party'] = winners['party'].str.replace('democratic-farmer-labor', 'democrat')
 
     #two columns with 08 winners and 12 winners
@@ -70,4 +80,5 @@ def merge_data(ele, farm):
 
     return df
 
+# setting the merged farm and election data to our base df
 df = merge_data(ele, farm)
