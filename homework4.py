@@ -132,7 +132,7 @@ def SVC_test(X_train, Y_train, X_test):
     return predict
 
 predict = SVC_test(X_train, Y_train, X_test)
-df['12predict'] = predict
+predict = df['12predict']
 print('The predicted winners presented in the original dataframe as "12predict":\n')
 print(df[['state', '08party', '12party', '12predict']])
 
