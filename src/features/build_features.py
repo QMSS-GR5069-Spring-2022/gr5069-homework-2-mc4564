@@ -80,4 +80,5 @@ def merge_data(ele, farm):
 
 df = merge_data(ele, farm)
 
-df.to_csv('merged_data.csv')
+# export to
+df.to_csv(r'data\processed_data\merged_data.csv')
