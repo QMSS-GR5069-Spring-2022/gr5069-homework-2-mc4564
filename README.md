@@ -3,43 +3,10 @@
 
 __Due date: Sunday November 29th before midnight__
 
-In homework 1 we used state-level data on employment in several
- [NAICS](https://www.naics.com/search/) code sectors from 
-the [Bureau of Economic Analysis]
-(https://apps.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1).  
-We have also explored the Pandas DataReader library in order to 
-access the FRED database, among others.  
-Your goal in this assignment is to use annual state-level data 
-and supervised machine learning to classify 
-states as voting for a Republican or Democrat for president.
 
-1. Use *any* annual state-level data from any two presidential 
-election years (1976 and later) that you like, 
-e.g. 2008 and 2012, 2016 and 2020, etc.  Your data may be retrieved 
-by the program, or downloaded by hand and 
-synched with your repo, or a combination of both.
-2. If you have already written functions to use that data, 
-you may reuse those functions here.
-3. Merge all data together with the included csv on 
-US presidential election results that I downloaded 
-from 
-[here](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/42MVDX).
-4. Your training data will be the first presidential election year, 
-and your testing data will be the second.
-5. Use a test harness to assess which model 
-to use (more discussion of this to follow on Wednesday).
-6. Fit a supervised ML model (classification) to the data 
-in that way that lets you make predictions, 
-then compare the predictions to the actual outcome.
+In this project, I use presidential annual state-level data employment data from [NAICS](https://www.naics.com/search/) and from the [Bureau of Economic Analysis](https://apps.bea.gov/iTable/iTable.cfm?reqid=70&step=1&isuri=1) and supervised machine learning to classify states as voting for the Republican candidate or the Democratic candidate for president.
 
-End your code with a few lines discussing what you found.  
-Did your model do a good job of predicting the winner?  
-What accuracy measure did you use to evaluate the model results, and why?  
-Were you able to reuse any code that you 
-wrote previously, and if so, what worked well or didn't work well?
+I decided to use data from the 2008 election to predict the 2012 election. I did this by first cleaning up my election data (data/1976-2016-president.csv) to choose election winners by state in 2008 and 2012. Then I cleaned the farm data (data/farm.csv) to join in the dataset of per person farm income. I trained my supervised learning models on the 2008 winner data and tested my supervised learning models on the 2012 winner data.
 
-Do not get too bogged down on actually predicting the winner perfectly.  
-It's fine to get a mixed result and then 
-discuss how different data or a different model may have improved the results.
-
-As always, don't forget your functions and other good coding practices!
+My model uses the per capita farm income in each state to predict 2012 presidential election.
+My model was not very successful in predicting the results. My model predicts the democrats to win a literal landslide with 49 states. It appears that no matter what level of farm in come you are on, democrats should win the state. My model has an accuracy score of 55%, by comparing '12party' and '12predict'. Having more variables to predict from will greatly increase the accuracy of my model.
